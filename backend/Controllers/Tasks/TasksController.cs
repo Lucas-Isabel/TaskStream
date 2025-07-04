@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace backend.Controllers.Tasks
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("/{roomName}/[controller]")]
     public class TasksController : ControllerBase, IService<TaskDTO>
     {
         private readonly IService<TaskDTO> _taskService;

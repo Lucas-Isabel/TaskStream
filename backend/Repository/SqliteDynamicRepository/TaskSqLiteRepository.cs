@@ -3,15 +3,15 @@ using backend.Service;
 using Microsoft.Data.Sqlite;
 using System.Data;
 
-namespace backend.Repository.SqLiteRepository
+namespace backend.Repository.SqliteDynamicRepository
 {
     public class TaskSqLiteRepository : IRepository<TaskDTO>
     {
         private readonly string _connectionString;
 
-        public TaskSqLiteRepository(string connectionString)
+        public TaskSqLiteRepository(string roomName)
         {
-            _connectionString = connectionString;
+            _connectionString = DynamicSetup.SetupDatabase(roomName); 
         }
 
         private IDbConnection CreateConnection()

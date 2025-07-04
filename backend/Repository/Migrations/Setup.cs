@@ -1,4 +1,5 @@
 ﻿using System;
+using Dapper;
 using Microsoft.Data.Sqlite;
 
 public static class Setup
@@ -9,6 +10,7 @@ public static class Setup
         {
             using var connection = new SqliteConnection(connectionString);
             connection.Open();
+            connection.Execute("PRAGMA foreign_keys = ON;");
 
             // Criação da tabela Columns com ColumnId auto-incrementado
             var createColumnsCmd = connection.CreateCommand();
@@ -72,4 +74,5 @@ public static class Setup
             return false;
         }
     }
+    
 }

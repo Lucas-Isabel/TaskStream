@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace backend.Controllers.Columns
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("/{roomName}/[controller]")]
     public class ColumnControllers : ControllerBase, IService<ColumnsDataDTO>
     {
         private readonly IService<ColumnsDataDTO> _columnDataService;
